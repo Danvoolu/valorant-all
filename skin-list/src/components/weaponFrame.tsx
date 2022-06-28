@@ -26,7 +26,7 @@ const WeaponFrame = ({ url, name, onClick }: Props) => {
         fontWeight: "700",
       }}
     >
-      <img src={url} onClick={onClick} style={{ width: 400 }} />
+      <img src={url} style={{ width: 400 }} />
       {name}
     </Box>
   );
