@@ -36,6 +36,7 @@ const ResponsiveDrawer = ({ children }: Props) => {
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
+          onClick={handleDrawerToggle}
           ModalProps={{
             keepMounted: true,
           }}
