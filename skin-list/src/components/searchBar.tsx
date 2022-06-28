@@ -15,7 +15,6 @@ const SearchBar = ({ text, setText }: Props) => {
 
   return (
     <Paper
-      component="form"
       sx={{
         p: "2px 4px",
         display: "flex",
