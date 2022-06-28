@@ -1,9 +1,15 @@
-export interface apiRes {
-  weapons: Weapons;
+export interface ApiResponseWeapon<T> {
+  weapons: T;
 }
 
 export interface Weapons {
   data: Weapon[];
+  status: number;
+}
+
+//https://valorant-api.com/v1/weapons/{weaponUuid}
+export interface WeaponByUuid {
+  data: Weapon;
   status: number;
 }
 
@@ -12,12 +18,12 @@ export interface Weapon {
   displayName: string;
   category: string;
   defaultSkinUuid: string;
+  displayIcon: string;
   killStreamIcon: string;
   assetPath: string;
   weaponStats: WeaponStats;
   shopData: WeaponShopData;
   skins: Array<WeaponSkin>;
-  displayIcon: string;
 }
 
 export interface WeaponStats {
@@ -53,6 +59,7 @@ export interface WeaponShopData {
   category: string;
   categoryText: string;
   gridPosition: WeaponShopDataGridPosition;
+  canBeTrashed: boolean;
   image: string;
   newImage: string;
   newImage2: string;
@@ -86,6 +93,7 @@ export interface WeaponSkin {
   themeUuid: string;
   contentTierUuid: string;
   displayIcon: string;
+  wallpaper: string;
   assetPath: string;
   chromas: Array<WeaponSkinChroma>;
   levels: Array<WeaponSkinLevel>;
@@ -97,6 +105,7 @@ export interface WeaponSkinChroma {
   displayIcon: string;
   fullRender: string;
   swatch: any;
+  streamedVideo: string;
   assetPath: string;
 }
 
@@ -105,5 +114,6 @@ export interface WeaponSkinLevel {
   displayName: string;
   levelItem: any;
   displayIcon: string;
+  streamedVideo: string;
   assetPath: string;
 }

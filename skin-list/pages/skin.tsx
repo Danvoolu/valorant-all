@@ -3,13 +3,16 @@ import Box from "@mui/material/Box";
 import type { NextPage } from "next";
 import useSWR from "swr";
 import WeaponFrame from "../src/components/weaponFrame";
-import { apiRes } from "../src/models/weaponModel";
+import { ApiResponseWeapon } from "../src/models/weaponModel";
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
 const Skin: NextPage = () => {
   const router = useRouter();
-  const { data, error } = useSWR<apiRes>("/api/valorant-weapons", fetcher);
+  const { data, error } = useSWR<ApiResponseWeapon>(
+    "/api/valorant-weapons",
+    fetcher
+  );
 
   if (error) console.log(error);
   if (data) console.log(data);
