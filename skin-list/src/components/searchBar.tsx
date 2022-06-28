@@ -26,11 +26,11 @@ const SearchBar = ({ text, setText }: Props) => {
       <InputBase
         sx={{ ml: 1, flex: 1 }}
         placeholder="Search Skins"
-        inputProps={{ "aria-label": "search google maps" }}
+        inputProps={{ "aria-label": "search skins" }}
         value={text}
         onChange={handleChangeText}
       />
-      <IconButton type="submit" sx={{ p: "10px" }} aria-label="search">
+      <IconButton sx={{ p: "10px" }} aria-label="search">
         <SearchIcon />
       </IconButton>
     </Paper>
