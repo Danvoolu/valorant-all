@@ -11,7 +11,7 @@ import ContentCutIcon from "@mui/icons-material/ContentCut";
 
 const data = [
   { icon: <HomeIcon />, label: "Home", link: "/" },
-  { icon: <ContentCutIcon />, label: "武器", link: "weapons" },
+  { icon: <ContentCutIcon />, label: "武器", link: "/weapons" },
 ];
 
 const LeftDrawer = () => {

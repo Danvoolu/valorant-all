@@ -2,16 +2,17 @@ import { useRouter } from "next/router";
 import Box from "@mui/material/Box";
 import type { NextPage } from "next";
 import useSWR from "swr";
-import WeaponFrame from "../src/components/weaponFrame";
-import { apiRes } from "../src/models/weaponModel";
+import WeaponFrame from "../../src/components/weaponFrame";
+import { apiRes } from "../../src/models/weaponModel";
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
-const Weapons: NextPage = () => {
+const Index: NextPage = () => {
   const router = useRouter();
-  const { data, error } = useSWR<apiRes>("/api/valorant-weapons", fetcher);
+  const { data, error } = useSWR<apiRes>("/api/valorant/weapons", fetcher);
 
   const handleClickImg = (id: string) => {
+    console.log("onClick発動");
     router.push({
       pathname: "/skin",
       query: { id: id },
@@ -36,9 +37,10 @@ const Weapons: NextPage = () => {
         {data.weapons.data.map((x) => (
           <WeaponFrame
             url={x.displayIcon}
+            id={x.uuid}
             name={x.displayName}
             key={x.uuid}
-            onClick={() => handleClickImg(x.uuid)}
+            onClick={handleClickImg}
           />
         ))}
       </Box>
@@ -46,4 +48,4 @@ const Weapons: NextPage = () => {
   );
 };
 
-export default Weapons;
+export default Index;
